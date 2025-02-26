@@ -15,7 +15,7 @@ void extractDiagonals(const std::vector<std::vector<double>>& matrix, std::vecto
     }
 }
 
-void thomasAlgorithm(const std::vector<double>& a, const std::vector<double>& b, const std::vector<double>& c, const std::vector<double>& d, std::vector<double>& x) {
+void algorithm(const std::vector<double>& a, const std::vector<double>& b, const std::vector<double>& c, const std::vector<double>& d, std::vector<double>& x) {
     size_t n = d.size();
     std::vector<double> P(n, 0.0); 
     std::vector<double> Q(n, 0.0); 
@@ -62,7 +62,7 @@ int main() {
     extractDiagonals(matrix, a, b, c);
 
     std::vector<double> x(n, 0.0);
-    thomasAlgorithm(a, b, c, d, x);
+    algorithm(a, b, c, d, x);
 
     std::cout << "Решение системы:" << std::endl;
     for (size_t i = 0; i < n; ++i) {
