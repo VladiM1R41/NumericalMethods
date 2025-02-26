@@ -1,8 +1,9 @@
 #include <iostream>
 #include <vector>
 
+using namespace std;
 
-void extractDiagonals(const std::vector<std::vector<double>>& matrix, std::vector<double>& a, std::vector<double>& b, std::vector<double>& c) {
+void extractDiagonals(const vector<vector<double>>& matrix, vector<double>& a, vector<double>& b, vector<double>& c) {
     size_t n = matrix.size();
     a.resize(n);
     b.resize(n);
@@ -15,10 +16,10 @@ void extractDiagonals(const std::vector<std::vector<double>>& matrix, std::vecto
     }
 }
 
-void algorithm(const std::vector<double>& a, const std::vector<double>& b, const std::vector<double>& c, const std::vector<double>& d, std::vector<double>& x) {
+void algorithm(const vector<double>& a, const vector<double>& b, const vector<double>& c, const vector<double>& d, vector<double>& x) {
     size_t n = d.size();
-    std::vector<double> P(n, 0.0); 
-    std::vector<double> Q(n, 0.0); 
+    vector<double> P(n, 0.0); 
+    vector<double> Q(n, 0.0); 
 
     P[0] = -c[0] / b[0];
     Q[0] = d[0] / b[0];
@@ -39,34 +40,34 @@ void algorithm(const std::vector<double>& a, const std::vector<double>& b, const
 
 int main() {
     size_t n;
-    std::cout << "Enter the size of the matrix (n): ";
-    std::cin >> n;
+    cout << "Enter the size of the matrix (n): ";
+    cin >> n;
 
-    std::vector<std::vector<double>> matrix(n, std::vector<double>(n, 0.0));
-    std::cout << "Enter the elements of matrix A:" << std::endl;
+    vector<vector<double>> matrix(n, vector<double>(n, 0.0));
+    cout << "Enter the elements of matrix A:" << endl;
     for (size_t i = 0; i < n; ++i) {
         for (size_t j = 0; j < n; ++j) {
-            std::cout << "A[" << i << "][" << j << "]: ";
-            std::cin >> matrix[i][j];
+            cout << "A[" << i << "][" << j << "]: ";
+            cin >> matrix[i][j];
         }
     }
 
-    std::vector<double> d(n, 0.0);
-    std::cout << "Enter the elements of vector b:" << std::endl;
+    vector<double> d(n, 0.0);
+    cout << "Enter the elements of vector b:" << endl;
     for (size_t i = 0; i < n; ++i) {
-        std::cout << "b[" << i << "]: ";
-        std::cin >> d[i];
+        cout << "b[" << i << "]: ";
+        cin >> d[i];
     }
 
-    std::vector<double> a, b, c;
+    vector<double> a, b, c;
     extractDiagonals(matrix, a, b, c);
 
-    std::vector<double> x(n, 0.0);
+    vector<double> x(n, 0.0);
     algorithm(a, b, c, d, x);
 
-    std::cout << "Решение системы:" << std::endl;
+    cout << "Решение системы:" << endl;
     for (size_t i = 0; i < n; ++i) {
-        std::cout << "x[" << i << "] = " << x[i] << std::endl;
+        cout << "x[" << i << "] = " << x[i] << endl;
     }
 
     return 0;
