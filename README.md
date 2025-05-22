@@ -1,1 +1,3 @@
 # NumericalMethods
+
+## Вариант 12
